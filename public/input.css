@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+
+    padding: 30px;
+}
+
+header {
+    background-image:
+        linear-gradient(to right bottom,
+            hsla(111, 55%, 64%, 0.8),
+            hsla(160, 64%, 43%, 0.8)),
+        url(../img/hero.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 95vh;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+
+}
+
+
+.words {
+    word-spacing: 10px;
+    letter-spacing: 20px;
+    line-height: 2;
+
+}
+
+.nav {
+    line-height: 2;
+}
+
+.text1 {
+    animation-name: moveleft;
+    animation-duration: 1.5s;
+}
+
+@keyframes moveleft {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    80% {
+        transform: translateX(7px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.text2 {
+    animation-name: moveright;
+    animation-duration: 1.5s;
+}
+
+@keyframes moveright {
+
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    80% {
+        transform: translateX(-7px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.disc-button::after {
+    content: "";
+
+    position: absolute;
+    display: block;
+    width: 15rem;
+    height: 3rem;
+    bottom: 4px;
+
+
+    border-radius: 1.5rem;
+    z-index: -1;
+
+
+}
+
+.disc-button:hover::after {
+    transform: scale(1.3);
+    transition: all .4s;
+    background-color: aliceblue;
+    opacity: 0;
+
+}
+
+.logo:not(:hover) {
+    transform: scale(1.15);
+    transition: all 1.5s;
+}
+
+.links:hover {
+    animation-name: movelinks;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes movelinks {
+    0% {
+        opacity: 0;
+        transform: translateX(0px);
+        color: rgb(38, 142, 34);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(10px);
+        color: rgb(14, 168, 9);
+    }
+}
+
+.links::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 285px;
+    height: 50px;
+    top: 10px;
+    z-index: -1;
+
+
+}
+
+.links:hover::after {
+    animation-fill-mode: forwards;
+    animation-name: linkafter;
+    animation-duration: .5s;
+    direction: rtl;
+
+
+}
+
+.links:not(:hover) {
+
+    animation-name: moveleft;
+    animation-duration: 1s;
+
+}
+
+@keyframes linkafter {
+
+
+    0% {
+        opacity: 0;
+        width: 0;
+        background-color: aliceblue;
+        clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+    }
+
+    100% {
+        opacity: 1;
+        width: 100%;
+        background-color: aliceblue;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
